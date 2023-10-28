@@ -9,21 +9,19 @@ export default function HomePage() {
     async function fetchMovies() {
       try {
         const movies = await fetchData();
-        
+
         setArrMovies(movies.results);
       } catch (error) {
         console.log('err');
       }
     }
     fetchMovies();
-
   }, []);
 
   return (
     <>
-      <h1>Welcome!</h1>
+      <h1>Trending today</h1>
       <ListTrends list={arrMovies}></ListTrends>
-   
     </>
   );
 }

@@ -1,13 +1,14 @@
 import { fetchDataById } from 'API/apiById';
 import { ReviewMovie } from 'components/ReviewMovie/ReviewMovie.jsx';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function MovieById() {
   const param = useParams();
   const [movieEl, setMovieEl] = useState({});
-
+  const location = useLocation();
+  console.log(location);
   useEffect(() => {
     async function getMobieById() {
       try {
@@ -22,5 +23,10 @@ export default function MovieById() {
     getMobieById();
   }, [param.movieById]);
 
-  return <>{movieEl && <ReviewMovie foundEl={movieEl} />}</>;
+  return (
+    <>
+      <Link to={location.state?.from ?? '/movies'}>Go back</Link>
+      {movieEl && <ReviewMovie foundEl={movieEl} />}
+    </>
+  );
 }

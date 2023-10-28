@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ItemList, ListTrendsStyled } from './ListTrends.styled';
 
 export const ListTrends = ({ list }) => {
+  console.log(list);
+  const location = useLocation();
+
   return (
     <ListTrendsStyled>
       {list.map(el => (
@@ -13,7 +16,7 @@ export const ListTrends = ({ list }) => {
               width={200}
             ></img>
           }
-          <Link to={`/movies/${el.id}`}>
+          <Link to={`/movies/${el.id}`} state={{ from: location }}>
             <h3>{el.title}</h3>
           </Link>
         </ItemList>

@@ -11,6 +11,7 @@ export const SearchByMovie = ({ onSubmit }) => {
   return (
     <SearchForm
       onSubmit={e => {
+        e.preventDefault();
         onSubmit(e);
       }}
     >

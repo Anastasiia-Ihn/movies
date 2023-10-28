@@ -7,13 +7,9 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const Navigation = () => {
-  return (
-    <>
-      <nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/movies">Movies</StyledLink>
-      </nav>
-    </>
-  );
-};
+export const Navigation = () => (
+  <nav>
+    <StyledLink to="/">Home</StyledLink>
+    <StyledLink to="/movies">Movies</StyledLink>
+  </nav>
+);

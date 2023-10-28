@@ -1,6 +1,7 @@
 import { Navigation } from 'components/Navigation';
 import { Container } from './Layout.styled';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 export const Layout = () => {
   return (
@@ -8,8 +9,9 @@ export const Layout = () => {
       <header>
         <Navigation />
       </header>
-
-      <Outlet />
+      <Suspense fallback={'Loading...'}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 };
