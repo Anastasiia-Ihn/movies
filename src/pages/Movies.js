@@ -51,6 +51,8 @@ export default function Movies() {
     evt.preventDefault();
     setQuery(evt.target[0].value.trim());
     console.log(evt);
+    console.log(loader);
+    
 
     setPage(1);
     setListMovies([]);
