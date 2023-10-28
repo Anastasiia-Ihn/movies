@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { BASE_URL, key } from '../utils/constants';
 
-const key = '84201912ed7e3ce22261b9e0387010b4';
-const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
+// const key = '84201912ed7e3ce22261b9e0387010b4';
+// const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
 export const fetchDataByValue = async (valueInput, page) => {
   const params = new URLSearchParams({

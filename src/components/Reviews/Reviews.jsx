@@ -12,8 +12,7 @@ export const Reviews = () => {
     async function getMobieByIdForReviews() {
       try {
         const reviews = await fetchDataByIdForReviews(param.movieById);
-// console.log(reviews);
-
+        // console.log(reviews);
         setMovieReviews(reviews);
       } catch (error) {
         toast.error('Not found');
@@ -23,14 +22,33 @@ export const Reviews = () => {
     getMobieByIdForReviews();
   }, [param.movieById]);
 
-  // console.log(movieReviews.results.length);
+  console.log(movieReviews);
 
-  return ( movieReviews.results.length ?  <div>
-    {movieReviews.results.map(el => (
-      <>
-        <h3>Author: {el.author}</h3>
-        <p>{el.content}</p>
-      </>
-    ))}
-  </div> : <p>Sorry, not found</p>)
+  return movieReviews.length === 0 ? (
+    <p>No Reviews</p>
+  ) : (
+    <ul>
+      {movieReviews.map(({ id, author, content }) => (
+        <li key={id}>
+          <p>
+            <span>Author:</span> {author}
+          </p>
+          <p>{content}</p>
+        </li>
+      ))}
+    </ul>
+  );
+
+  // movieReviews?.length !== 0 ? (
+  //   <ul>
+  //     {movieReviews.map(el => (
+  //       <li key={el.id}>
+  //         <h3>Author: {el.author}</h3>
+  //         <p>{el.content}</p>
+  //       </li>
+  //     ))}
+  //   </ul>
+  // ) : (
+  //   <p>Sorry, not found</p>
+  // );
 };
