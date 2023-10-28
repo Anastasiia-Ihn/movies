@@ -1,5 +1,5 @@
 import { fetchDataById } from 'API/apiById';
-import { MovieDetails } from 'components/MovieDetails/MovieDetails.jsx';
+import { ReviewMovie } from 'components/ReviewMovie/ReviewMovie.jsx';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -22,5 +22,5 @@ export default function MovieById() {
     getMobieById();
   }, [param.movieById]);
 
-  return <>{movieEl && <MovieDetails foundEl={movieEl} />}</>;
+  return <>{movieEl && <ReviewMovie foundEl={movieEl} />}</>;
 }
