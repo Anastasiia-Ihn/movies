@@ -4,14 +4,14 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export const Reviews = () => {
-  const param = useParams();
+  const { movieById } = useParams();
 
-  const [movieReviews, setMovieReviews] = useState();
+  const [movieReviews, setMovieReviews] = useState([]);
 
   useEffect(() => {
     async function getMobieByIdForReviews() {
       try {
-        const reviews = await fetchDataByIdForReviews(param.movieById);
+        const reviews = await fetchDataByIdForReviews(movieById);
         // console.log(reviews);
         setMovieReviews(reviews);
       } catch (error) {
@@ -20,11 +20,11 @@ export const Reviews = () => {
     }
 
     getMobieByIdForReviews();
-  }, [param.movieById]);
+  }, [movieById]);
 
   console.log(movieReviews);
 
-  return movieReviews.length === 0 ? (
+  return movieReviews?.length === 0 ? (
     <p>No Reviews</p>
   ) : (
     <ul>
