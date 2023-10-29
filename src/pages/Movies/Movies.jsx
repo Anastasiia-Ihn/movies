@@ -2,29 +2,31 @@ import { fetchDataByValue } from 'API/api';
 import { ListTrends } from 'components/ListTrends/ListTrends';
 import { SearchByMovie } from 'components/SearchByMovie/SearchByMovie';
 import { useEffect, useState } from 'react';
-// import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function Movies() {
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // console.log(searchParams);
 
   const [listMovies, setListMovies] = useState([]);
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    if (query === '') {
+    const currentQuery = searchParams.get('query') ?? '';
+
+    if (currentQuery === '') {
       return;
     }
-
     async function fetchData() {
       setLoader(true);
 
       try {
-        const { results } = await fetchDataByValue(query, page);
-        console.log(results.length);
+        const { results } = await fetchDataByValue(currentQuery, page);
 
         if (!results.length) {
           setError(true);
@@ -45,7 +47,7 @@ export default function Movies() {
     }
 
     fetchData();
-  }, [query, page]);
+  }, [page, searchParams]);
 
   const handlerClickOnForm = evt => {
     // evt.preventDefault();
@@ -53,24 +55,15 @@ export default function Movies() {
     if (evt.target[0].value.trim() === '') {
       return error && toast.error('Please, write your query.');
     }
-
-    setQuery(evt.target[0]?.value.trim());
-    console.log(evt.target[0].value);
+    console.log(searchParams);
+    setSearchParams(searchParams);
+    // setQuery(evt.target[0]?.value.trim());
+    // console.log(evt.target[0].value);
     console.log(loader);
     setPage(1);
     // setListMovies([]);
   };
-  console.log(listMovies);
-  // const handlerClickOnForm = ({{ input: { value } }) => {
-  //   if (value === '') {
-  //     return error && toast.error('Please, write your query.');
-  //   }
-  //   console.log(value);
-  //   setQuery(value);
-  //   console.log(loader);
-  //   setPage(1);
-  //   setListMovies([]);
-  // };
+  // console.log(listMovies);
 
   // const handlerClickOnLoadMore = () => {
   //   setPage(prev => prev + 1);

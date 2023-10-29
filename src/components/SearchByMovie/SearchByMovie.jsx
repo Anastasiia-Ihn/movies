@@ -1,11 +1,16 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { SearchBtn, SearchInput, SearchForm } from './SearchByMovie.styled';
+import { useSearchParams } from 'react-router-dom';
 
 export const SearchByMovie = ({ onSubmit }) => {
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
 
-  const handleChange = evt => {
-    setValue(evt.target.value);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentQuery = searchParams.get('query') ?? '';
+
+  const handleChangeQuery = evt => {
+    searchParams.set('query', evt.target.value.trim());
+    setSearchParams(searchParams);
   };
 
   return (
@@ -18,8 +23,8 @@ export const SearchByMovie = ({ onSubmit }) => {
       <SearchInput
         type="text"
         placeholder="Search movies"
-        value={value}
-        onChange={handleChange}
+        value={currentQuery}
+        onChange={handleChangeQuery}
       />
       <SearchBtn type="submit">Search</SearchBtn>
     </SearchForm>

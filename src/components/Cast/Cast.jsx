@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { fetchDataByIdForCast } from 'API/api';
+import { BASE_POSTER_URL } from '../../utils/constants';
 
 export const Cast = () => {
   const param = useParams();
@@ -21,15 +22,13 @@ export const Cast = () => {
     getMobieByIdForCast();
   }, [param.movieById]);
 
-  // console.log(movieCast);
-
   return movieCast ? (
     <ul>
       {movieCast.map(el => (
         <li key={el.id}>
           {
             <img
-              src={`https://image.tmdb.org/t/p/w500/${el.profile_path}`}
+              src={`${BASE_POSTER_URL}${el.profile_path}`}
               alt={el.name}
               width={200}
             ></img>

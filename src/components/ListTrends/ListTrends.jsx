@@ -2,7 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { ItemList, ListTrendsStyled } from './ListTrends.styled';
 
 export const ListTrends = ({ list }) => {
-  console.log(list);
   const location = useLocation();
 
   return (

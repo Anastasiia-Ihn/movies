@@ -1,4 +1,3 @@
-// import styled from 'styled-components';
 import { ListNavStyled, StyledLink } from './Navigation.styled';
 
 export const Navigation = () => (
