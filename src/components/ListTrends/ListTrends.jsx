@@ -13,7 +13,8 @@ export const ListTrends = ({ list }) => {
             <img
               src={`https://image.tmdb.org/t/p/w500/${el.poster_path}`}
               alt={el.original_title}
-              width={200}
+              width={226}
+              height={339}
             ></img>
           }
           <Link to={`/movies/${el.id}`} state={{ from: location }}>

@@ -13,4 +13,33 @@ export const ListTrendsStyled = styled.ul`
   margin-right: auto;
 `;
 
-export const ItemList = styled.li``;
+export const ItemList = styled.li`
+  background-color: #a887f1;
+  border-radius: 5px;
+  box-shadow: 10px 11px 10px 2px rgba(34, 60, 80, 0.2);
+  overflow: hidden;
+  height: 418px;
+
+  & img {
+    display: block;
+
+    width: 100%;
+  }
+  & h3 {
+    padding: 8px 12px;
+    line-height: 1.36;
+
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    :focus,
+    :hover {
+      cursor: pointer;
+    }
+  }
+`;
