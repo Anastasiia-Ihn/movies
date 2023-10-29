@@ -2,7 +2,7 @@ import { fetchData } from 'API/api';
 import { ListTrends } from 'components/ListTrends/ListTrends';
 import { useEffect, useState } from 'react';
 
-export default function HomePage() {
+export default function Home() {
   const [arrMovies, setArrMovies] = useState([]);
 
   useEffect(() => {
