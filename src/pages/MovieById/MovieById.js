@@ -1,4 +1,4 @@
-import { fetchDataById } from 'API/apiById';
+import { fetchDataById } from 'API/api';
 import { ReviewMovie } from 'components/ReviewMovie/ReviewMovie.jsx';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';

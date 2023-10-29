@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { fetchDataByIdForCast } from 'API/apiByIdCast';
+import { fetchDataByIdForCast } from 'API/api';
 
 export const Cast = () => {
   const param = useParams();

@@ -1,4 +1,4 @@
-import { fetchDataByIdForReviews } from 'API/apiByIdReviews';
+import { fetchDataByIdForReviews } from 'API/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';

@@ -1,4 +1,4 @@
-import { fetchDataByValue } from 'API/apiByValue';
+import { fetchDataByValue } from 'API/api';
 import { ListTrends } from 'components/ListTrends/ListTrends';
 import { SearchByMovie } from 'components/SearchByMovie/SearchByMovie';
 import { useEffect, useState } from 'react';
