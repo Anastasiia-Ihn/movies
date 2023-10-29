@@ -38,10 +38,8 @@ export const fetchDataByIdForReviews = async movieId => {
 
 // ==================================================================
 
-export const fetchDataByValue = async (valueInput, page) => {
-  const resp = await axios.get(
-    `/search/movie?query= ${valueInput}& page=${page}`
-  );
+export const fetchDataByValue = async valueInput => {
+  const resp = await axios.get(`/search/movie?query= ${valueInput}`);
   return resp.data;
 };
 

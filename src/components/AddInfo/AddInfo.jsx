@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { ListAddInfoStyled } from './AddInfo.styled';
 
 const StyledLink = styled(NavLink)`
   &.active {
@@ -11,14 +12,16 @@ export const AddInfo = () => {
 
   return (
     <>
-      <ul>
-        <StyledLink to={`/movies/${param.movieById}/cast`}>
-          <li>Cast</li>
-        </StyledLink>
-        <StyledLink to={`/movies/${param.movieById}/reviews`}>
-          <li>Reviews</li>
-        </StyledLink>
-      </ul>
+      <ListAddInfoStyled>
+        <li>
+          <StyledLink to={`/movies/${param.movieById}/cast`}>Cast</StyledLink>
+        </li>
+        <li>
+          <StyledLink to={`/movies/${param.movieById}/reviews`}>
+            Reviews
+          </StyledLink>
+        </li>
+      </ListAddInfoStyled>
       <Outlet />
     </>
   );

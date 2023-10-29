@@ -7,14 +7,7 @@ import { toast } from 'react-toastify';
 
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  // console.log(searchParams);
-
   const [listMovies, setListMovies] = useState([]);
-  // const [query, setQuery] = useState('');
-  const [loader, setLoader] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const currentQuery = searchParams.get('query') ?? '';
@@ -22,57 +15,55 @@ export default function Movies() {
     if (currentQuery === '') {
       return;
     }
-    async function fetchData() {
-      setLoader(true);
 
+    async function fetchData() {
       try {
-        const { results } = await fetchDataByValue(currentQuery, page);
+        const { results } = await fetchDataByValue(currentQuery);
 
         if (!results.length) {
-          setError(true);
           toast.error('Sorry, not found');
         }
-
         setListMovies(results);
       } catch (err) {
-        setError(true);
         toast.error('Not found');
+        console.log(err.code);
         // if (err.code !== 'ERR_CANCELED') {
         //   setError(true);
         //   toast.error('Not found');
         // }
-      } finally {
-        setLoader(false);
       }
     }
-
     fetchData();
-  }, [page, searchParams]);
+  }, [searchParams]);
 
-  const handlerClickOnForm = evt => {
-    // evt.preventDefault();
-
-    if (evt.target[0].value.trim() === '') {
-      return error && toast.error('Please, write your query.');
-    }
-    console.log(searchParams);
-    setSearchParams(searchParams);
-    // setQuery(evt.target[0]?.value.trim());
-    // console.log(evt.target[0].value);
-    console.log(loader);
-    setPage(1);
-    // setListMovies([]);
+  const updateQuery = query => {
+    const nextParams = query !== '' ? { query } : {};
+    setSearchParams(nextParams);
   };
-  // console.log(listMovies);
-
-  // const handlerClickOnLoadMore = () => {
-  //   setPage(prev => prev + 1);
-  // };
-
   return (
     <>
-      <SearchByMovie onSubmit={handlerClickOnForm}></SearchByMovie>
-      <ListTrends list={listMovies}></ListTrends>
+      <SearchByMovie onSubmit={updateQuery}></SearchByMovie>
+      {listMovies.length > 0 && <ListTrends list={listMovies}></ListTrends>}
     </>
   );
 }
+
+// const handlerClickOnForm = evt => {
+//   // evt.preventDefault();
+
+//   if (evt.target[0].value.trim() === '') {
+//     return error && toast.error('Please, write your query.');
+//   }
+//   console.log(searchParams);
+//   setSearchParams(searchParams);
+//   // setQuery(evt.target[0]?.value.trim());
+//   // console.log(evt.target[0].value);
+//   console.log(loader);
+//   setPage(1);
+//   // setListMovies([]);
+// };
+// console.log(listMovies);
+
+// const handlerClickOnLoadMore = () => {
+//   setPage(prev => prev + 1);
+// };
