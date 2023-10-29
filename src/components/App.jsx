@@ -11,9 +11,9 @@ import { Reviews } from './Reviews/Reviews';
 import { lazy } from 'react';
 // import HomePage from '../pages/Home';
 
-const Home = lazy(() => import('../pages/Home'));
-const Movies = lazy(() => import('../pages/Movies'));
-const MovieById = lazy(() => import('../pages/MovieById'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MovieById = lazy(() => import('../pages/MovieById/MovieById'));
 // const Cast = lazy(() => import('./Cast/Cast'));
 // const Reviews = lazy(() => import('./Reviews/Reviews'));
 

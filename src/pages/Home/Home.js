@@ -1,6 +1,7 @@
 import { fetchData } from 'API/api';
 import { ListTrends } from 'components/ListTrends/ListTrends';
 import { useEffect, useState } from 'react';
+import { MainTitle } from './Home.styled';
 
 export default function Home() {
   const [arrMovies, setArrMovies] = useState([]);
@@ -20,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <MainTitle>Trending today</MainTitle>
       <ListTrends list={arrMovies}></ListTrends>
     </>
   );

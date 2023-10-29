@@ -48,7 +48,7 @@ export default function Movies() {
   }, [query, page]);
 
   const handlerClickOnForm = evt => {
-    evt.preventDefault();
+    // evt.preventDefault();
 
     if (evt.target[0].value.trim() === '') {
       return error && toast.error('Please, write your query.');
