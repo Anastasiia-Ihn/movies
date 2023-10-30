@@ -27,7 +27,7 @@ export default function MovieById() {
 
   return (
     <>
-      <BackLink to={location.state?.from ?? '/movies'}>
+      <BackLink to={location.state?.from ?? '/'}>
         <BiArrowBack /> Go back
       </BackLink>
       {movieEl && <ReviewMovie foundEl={movieEl} />}

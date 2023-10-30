@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <MainTitle>Trending today</MainTitle>
-      <ListTrends list={arrMovies}></ListTrends>
+      {arrMovies && <ListTrends list={arrMovies}></ListTrends>}
     </>
   );
 }

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { fetchDataByIdForCast } from 'API/api';
 import { BASE_POSTER_URL } from '../../utils/constants';
 
-export const Cast = () => {
+export default function Cast() {
   const param = useParams();
 
   const [movieCast, setMovieCast] = useState();
@@ -42,4 +42,4 @@ export const Cast = () => {
   ) : (
     <p>Sorry, not found</p>
   );
-};
+}

@@ -42,28 +42,8 @@ export default function Movies() {
 
   return (
     <>
-      <SearchByMovie onSubmit={handleSubmit}></SearchByMovie>
-      {listMovies.length > 0 && <ListTrends list={listMovies}></ListTrends>}
+      <SearchByMovie onSubmit={handleSubmit} />
+      {listMovies.length > 0 && <ListTrends list={listMovies} />}
     </>
   );
 }
-
-// const handlerClickOnForm = evt => {
-//   // evt.preventDefault();
-
-//   if (evt.target[0].value.trim() === '') {
-//     return error && toast.error('Please, write your query.');
-//   }
-//   console.log(searchParams);
-//   setSearchParams(searchParams);
-//   // setQuery(evt.target[0]?.value.trim());
-//   // console.log(evt.target[0].value);
-//   console.log(loader);
-//   setPage(1);
-//   // setListMovies([]);
-// };
-// console.log(listMovies);
-
-// const handlerClickOnLoadMore = () => {
-//   setPage(prev => prev + 1);
-// };
