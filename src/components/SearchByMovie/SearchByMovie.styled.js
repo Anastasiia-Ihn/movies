@@ -7,7 +7,6 @@ export const SearchInput = styled.input`
   font: inherit;
   font-size: 20px;
   border: none;
-  border-color: #586974;
   outline: none;
   padding: 10px 40px;
 
@@ -18,7 +17,7 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchBtn = styled.button`
-  border: 1px solid #ffffff;
+  border: 1px solid ${p => p.theme.colors.white};
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
   cursor: pointer;
@@ -40,7 +39,7 @@ export const SearchBtn = styled.button`
       rgba(0, 0, 0, 0.4) 0 1px 2px;
     text-decoration: none;
     transition-duration: 0.15s, 0.15s;
-    background-color: #ffffff;
+    background-color: ${p => p.theme.colors.white};
   }
 `;
 

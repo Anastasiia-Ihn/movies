@@ -36,13 +36,13 @@ export default function Movies() {
     fetchData();
   }, [searchParams]);
 
-  const updateQuery = query => {
-    const nextParams = query !== '' ? { query } : {};
-    setSearchParams(nextParams);
+  const handleSubmit = value => {
+    setSearchParams({ query: value });
   };
+
   return (
     <>
-      <SearchByMovie onSubmit={updateQuery}></SearchByMovie>
+      <SearchByMovie onSubmit={handleSubmit}></SearchByMovie>
       {listMovies.length > 0 && <ListTrends list={listMovies}></ListTrends>}
     </>
   );

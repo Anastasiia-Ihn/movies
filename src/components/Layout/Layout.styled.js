@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
-  /* max-width: 1200px; */
   margin: 0 auto;
 `;
 
@@ -19,7 +18,7 @@ export const HeaderStyled = styled.div`
   padding: 15px 40px;
   margin-bottom: 48px;
   border-radius: 5px;
-  background-color: #9177ce;
+  background-color: ${p => p.theme.colors.darkPurple};
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 `;

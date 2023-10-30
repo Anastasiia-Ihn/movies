@@ -2,6 +2,7 @@ import { fetchDataByIdForReviews } from 'API/api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { AuthorRevievs, ContentRevievs } from './Reviews.styled';
 
 export const Reviews = () => {
   const { movieById } = useParams();
@@ -28,9 +29,9 @@ export const Reviews = () => {
       {movieReviews.map(({ id, author, content }) => (
         <li key={id}>
           <p>
-            <span>Author:</span> {author}
+            <AuthorRevievs>Author: </AuthorRevievs> {author}
           </p>
-          <p>{content}</p>
+          <ContentRevievs>{content}</ContentRevievs>
         </li>
       ))}
     </ul>

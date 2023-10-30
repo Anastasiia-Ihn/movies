@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-      background-color: #ad9ed0;
+      background-color: ${p => p.theme.colors.lightPurple};;
 
   }
 
@@ -49,35 +49,3 @@ li{
 }
 
 `;
-
-// :root {
-//   /* Fonds */
-//   --primary-font: "Roboto", sans-serif;
-//   --secondery-font: "Raleway", sans-serif;
-
-//   /* Color */
-//   --primary-text-color: #434455;
-//   --title-text-color: #2e2f42;
-
-//   --color-iris: #4d5ae5;
-//   --color-ocean: #404bbf;
-//   --color-green: #31d0aa;
-//   --color-light-slate: #8e8f99;
-//   --color-cornflower: #e7e9fc;
-//   --color-cloud: #f4f4fd;
-//   --color-navy-blue-modal: #2e2f42;
-//   --color-grey: #2e2f42;
-//   --color-white: #ffffff;
-//   --color-dairy: #fcfcfc;
-//   --color-bg: #e5e5e5;
-//   --color-modal: rgba(46, 47, 66, 0.4);
-//   /* animation */
-//   --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-// }
-
-// body {
-//   font-family: var(--primary-font);
-//   letter-spacing: 0.02em;
-//   color: var(--primary-text-color);
-//   background-color: var(--color-white);
-// }

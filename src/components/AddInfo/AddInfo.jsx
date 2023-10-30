@@ -12,6 +12,7 @@ export const AddInfo = () => {
 
   return (
     <>
+      Additional information
       <ListAddInfoStyled>
         <li>
           <StyledLink to={`/movies/${param.movieById}/cast`}>Cast</StyledLink>

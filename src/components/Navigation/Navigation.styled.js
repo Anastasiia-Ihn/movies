@@ -12,6 +12,6 @@ export const ListNavStyled = styled.ul`
 export const StyledLink = styled(NavLink)`
   &.active {
     font-weight: 600;
-    color: #17073a;
+    color: ${p => p.theme.colors.active};
   }
 `;

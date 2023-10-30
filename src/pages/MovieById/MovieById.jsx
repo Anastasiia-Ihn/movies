@@ -7,13 +7,15 @@ import { BackLink } from './MovieById.styled';
 import { BiArrowBack } from 'react-icons/bi';
 
 export default function MovieById() {
-  const param = useParams();
+  const { movieById } = useParams();
   const [movieEl, setMovieEl] = useState({});
   const location = useLocation();
   useEffect(() => {
+    if (!movieById) return;
+
     async function getMobieById() {
       try {
-        const movie = await fetchDataById(param.movieById);
+        const movie = await fetchDataById(movieById);
         setMovieEl(movie);
       } catch (error) {
         toast.error('Not found');
@@ -21,7 +23,7 @@ export default function MovieById() {
     }
 
     getMobieById();
-  }, [param.movieById]);
+  }, [movieById]);
 
   return (
     <>
